@@ -37,5 +37,33 @@ console.log(getElementWidth("60px", "12px", "8.5px")); // 101
 console.log(getElementWidth("200px", "0px", "0px")); // 200
 
 
+// 4 -
+//  Обчисли висоту елемента з урахуванням border-box
+
+//  Оголоси функцію getElementHeight, яка очікує три параметри, 
+//  значення яких задаються під час її виклику:
+
+//  - перший параметр - висота контенту content (напр, "100рх")
+// - padding - вертик паддінг для кожної зі сторін (напр, 10рх)
+// - border - товщина бордера для кожерї зі сторін. напр 2рх
+
+// Функція має повертати загальну висотку елемента,
+//  виходячи з того, що box-sixing: border-box (
+//     тобто контент вже включає паддінг і бордер)
+
+function getElementHeight(content, padding, border) {
+
+    const contentNum = Number.parseFloat(content);
+    const paddingNum = Number.parseFloat(padding);
+    const borderNum = Number.parseFloat(border);
+
+    return contentNum - paddingNum * 2 - borderNum * 2;
+
+
+}
+
+console.log(getElementHeight("100px", "10px", "2px")); // 76
+console.log(getElementHeight("80px", "5px", "5px"));   // 60
+console.log(getElementHeight("200px", "0px", "0px"));  // 200
 
 
