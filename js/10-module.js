@@ -111,7 +111,7 @@
 // - різниця часу
 // - Date.now()
 
-const currentDate = new Date();
+// const currentDate = new Date();
 
 // const day = currentDate.getDay();
 // const date = currentDate.getDate();
@@ -150,6 +150,5 @@ const currentDate = new Date();
 // }, 2000);
 
 
-// 9 - написати клас timer який буде 
-// запускати та зупиняти відлік часу
+// 9 - проміси 
 
