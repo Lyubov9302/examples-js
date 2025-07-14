@@ -247,14 +247,13 @@ console.log(checkStorage(["apple", "plum", "pear"], "orange"));
 // Поверни наповнений масив спільних елементів як результат роботи функції.
 
 function getCommonElements(array1, array2) {
-  let newArray = [];
-
+  const newElem = [];
   for (let i = 0; i <= array1.length; i++) {
-    if (array2.includes(i)) {
-    newArray.push(i);
+    if (array2.includes(array1[i])) {
+      newElem.push(array1[i]);
     }
   }
-return newArray;
+    return newElem;
 }
 
 console.log(getCommonElements([1, 2, 3], [2, 4]));
@@ -262,3 +261,91 @@ console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]));
 
 console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
 console.log(getCommonElements([1, 2, 3], [10, 20, 30]));
+
+// 13 - несумісні елементи
+
+// напиши функцію  getUncommonElements(array1, array2), яка:
+// - приймає два масиви
+// - повертає новий масив елементів, які є тільки в одному з масивів, 
+// але не в обох
+
+function getUncommonElements(array1, array2) {
+
+  let newM = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    if (!array2.includes(array1[i])) {
+      newM.push(array1[i]);
+    }
+    
+  }
+  for (let i = 0; i < array2.length; i++) {
+    if (!array1.includes(array2[i])) {
+      newM.push(array2[i]);
+}
+  }
+  return newM;
+}
+
+console.log(getUncommonElements([1, 2, 3], [2, 4]));
+// Повертає: [1, 3, 4]
+
+console.log(getUncommonElements([5, 6, 7], [7, 8, 9]));
+// Повертає: [5, 6, 8, 9]
+
+// 14 - Цикл for...of
+
+// Доповни код функції calculateTotalPrice(order) так,
+//  щоб вона повертала загальну суму чисел в масиві order.
+//   Використай цикл for...of для перебору масиву.
+
+
+function calculateTotalPrice(order) {
+  let total = 0;
+
+  for (const item of order) {
+    total += item;
+  }
+  return total;
+}
+
+console.log(calculateTotalPrice([12, 85, 37, 4]));
+console.log(calculateTotalPrice([164, 48, 291]));
+
+// 15 - аргументи
+
+function multiply() {
+  let total = 1;
+  
+
+  for (const arg of arguments) {
+    total *= arg;
+  }
+
+  return total;
+}
+
+console.log(multiply(1, 2, 3)); //  6
+console.log(multiply(1, 2, 3, 4)); //  24
+console.log(multiply(1, 2, 3, 4, 5)); //  120
+
+// 16 - псевдомасиви
+
+// Функція createReversedArray() може приймати довільну кількість аргументів. 
+// Доповни код функції так,
+//  щоб вона повертала масив усіх аргументів, 
+//  але в масиві вони повинні йти у зворотному порядку. 
+//  Тобто, при виклику createReversedArray(1, 2, 3), 
+//  функція має повернути масив [3, 2, 1].
+//   Використовуй цикл або метод масиву toReversed(), 
+//   який застосовується до масиву і результатом роботи повертає 
+//   новий масив з елементами у зворотньому порядку.
+
+function createReversedArray() {
+  const args = Array.from(arguments);
+  return args.toReversed();
+}
+
+console.log(createReversedArray(12, 85, 37, 4));
+
+
