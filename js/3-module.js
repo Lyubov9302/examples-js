@@ -348,4 +348,161 @@ function createReversedArray() {
 
 console.log(createReversedArray(12, 85, 37, 4));
 
+// 17 - homework tak 1
+
+// Напиши функцію slugify(title), 
+// яка приймає заголовок статті, параметр title і повертає slug,
+//  створений із цього рядка.
+
+// Значенням параметра title будуть рядки,
+//  слова яких розділені лише пробілами.
+// Усі символи slug повинні бути в нижньому регістрі.
+// Усі слова slug повинні бути розділені тире.
+// Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. 
+// У консоль будуть виведені результати її роботи.
+
+function slugify(title) {
+  const slug = title.toLowerCase().split(' ').join('-');
+  return slug;
+}
+
+console.log(slugify("Arrays for beginners")); // "arrays-for-beginners"
+console.log(slugify("English for developer")); // "english-for-developer"
+console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
+console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
+
+
+// 18 - homework task2
+// Напиши функцію під назвою makeArray,
+//  яка приймає три параметри: firstArray (масив), 
+//  secondArray (масив) і maxLength (число).
+//   Функція повинна створювати новий масив, який містить усі елементи з firstArray,
+//    а потім усі елементи з secondArray.
+
+// Якщо кількість елементів у новому масиві перевищує maxLength,
+//  функція повинна повернути копію масиву з довжиною maxLength елементів.
+// В іншому випадку функція повинна повернути весь новий масив
+
+function makeArray(firstArray, secondArray, maxLength) {
+  const newArray = firstArray.concat(secondArray);
+
+  if (newArray.length > maxLength) {
+      return newArray.slice(0, maxLength);
+  }
+  else {
+  return newArray;
+  }
+}
+
+console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); // ["Mango", "Poly", "Ajax"]
+console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
+console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3)); // ["Mango", "Ajax", "Chelsea"]
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2)); // ["Earth", "Jupiter"]
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4)); // ["Earth", "Jupiter", "Neptune", "Uranus"]
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0)); // []
+
+
+// 19 - makeShortArray 
+
+// напиши функцію makeShortArray(arrray, maxLength), 
+// яка 
+// - приймає масив і число
+// - якщо довж масиву більша, ніж максленгс - обрізає його до цієї довж
+// - інакше - повертає масив як є
+
+// function makeShortArray(arrray, maxLength) {
+//   if (arrray.length > maxLength) {
+//     return arrray.slice(0, maxLength);
+//   } else {
+//     return arrray;
+//   }
+// }
+
+// console.log(makeShortArray(["apple", "banana", "cherry"], 2));
+// // Поверне: ["apple", "banana"]
+
+
+// console.log(makeShortArray([1, 2, 3, 4], 5));
+// // Поверне: [1, 2, 3, 4]
+
+// 20 - task 3 homework
+
+// Напиши функцію filterArray(numbers, value), 
+// яка приймає масив чисел (numbers) та значення (value) як параметри. 
+// Функція повинна повертати новий масив лише тих чисел із масиву numbers, 
+// які більші за значення value.
+
+
+
+// Усередині функції:
+
+// Створи порожній масив, у який будеш додавати підходящі числа.
+// Використай цикл для ітерації кожного елемента масиву numbers.
+// Використовуй умовний оператор if усередині циклу для перевірки
+//  кожного елемента и додавання до свого масиву.
+// Поверни свій новий масив з підходящими числами як результат.
+
+function filterArray(numbers, value) {
+  let nArr = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > value) {
+      nArr.push(numbers[i]);
+    }
+   
+  }
+  return nArr;
+}
+
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+
+
+// 21 - напиши функцію getEvenNumbers(numbers), 
+// яка - приймає масив чисел намберс
+// - повертає новий масив, що містить тільки парні 
+// числа з вхідного масиву
+
+function getEvenNumbers(numbers) {
+  let newArNumbers = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 0) {
+      newArNumbers.push(numbers[i]);
+    }
+  }
+  return newArNumbers;
+}
+
+console.log(getEvenNumbers([1, 2, 3, 4, 5, 6]));
+// Поверне: [2, 4, 6]
+
+console.log(getEvenNumbers([11, 13, 15]));
+// Поверне: []
+
+// 22 - напиши функцію getNumbersGreaterThan(numbers),
+// яка - приймає масив чисел
+// - повертає новий масив чисел, який містить лише числа більше 10
+
+function getNumbersGreaterThanTen(numbers) {
+  let newArNumbers = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 10) {
+      newArNumbers.push(numbers[i]);
+    }
+  }
+  return newArNumbers;
+}
+
+
+console.log(getNumbersGreaterThanTen([4, 11, 8, 15, 3, 22]));
+// Поверне: [11, 15, 22]
+
+console.log(getNumbersGreaterThanTen([1, 2, 3]));
+// Поверне: []
+
 
