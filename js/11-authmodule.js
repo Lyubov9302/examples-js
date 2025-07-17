@@ -6,7 +6,7 @@
 
 // Для прикладу викор https://pixabay.com/api/docs
 
-const API_KEY = "51359701-f6006c27d1fc3647654901390";
+const API_KEY = "";
 
 const list = document.querySelector(".list");
 
