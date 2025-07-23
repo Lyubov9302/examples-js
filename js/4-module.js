@@ -291,12 +291,45 @@ console.log(
 ); // 0
 
 
+// 9 - b 
+
+// Напиши функцію calcAverageSteps(days), 
+// яка рахує середню кількість кроків, 
+// зроблених людиною протягом тижня.
+
+// Функція приймає один параметр days — масив обєктів:
+
+// Кожен обєкт містить:
+// 	•	day — назву дня тижня
+// 	•	steps — кількість зроблених кроків у цей день
+
+function calcAverageSteps(days) {
+  let totalSteps = 0;
+
+  for (const day of days) {
+    totalSteps += day.steps;
+  }
+  return totalSteps / days.length;
+}
+
+console.log(calcAverageSteps([
+  { day: "monday", steps: 8000 },
+  { day: "tuesday", steps: 9200 },
+  { day: "wednesday", steps: 10000 },
+  { day: "thursday", steps: 8700 },
+  { day: "friday", steps: 9500 },
+  { day: "saturday", steps: 11000 },
+  { day: "sunday", steps: 7000 }
+])
+
+);
+
+
+
 // 10 - homework task 3
 // Обєкт profile описує профіль користувача на ігровій платформі.
 //  У його властивостях зберігається імя 
 //  профілю username та кількість активних годин playTime, проведених у грі.
-
-
 
 // Доповни обєкт profile методами для роботи з його властивостями.
 
@@ -307,28 +340,71 @@ console.log(
 // число (кількість годин) у параметр hours та збільшити на нього значення
 //  властивості playTime. Нічого не повертає.
 
-const profile = {
-  username: "Jacob",
-  playTime: 300,
+// const profile = {
+//   username: "Jacob",
+//   playTime: 300,
 
-  changeUsername(newName) {
-    this.username = newName;
+//   changeUsername(newName) {
+//     this.username = newName;
+//   },
+
+//   updatePlayTime(hours) {
+//     this.playTime += hours;
+//   },
+
+//   getInfo() {
+//     return `${this.username} has ${this.playTime} active hours!`;
+//   },
+// };
+
+
+// console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+// profile.changeUsername("Marco");
+// console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+// profile.updatePlayTime(20);
+// console.log(profile.getInfo()); // "Marco has 320 active hours!"
+
+// 10 - b
+
+// Створи обєкт user, який зберігає інформацію про користувача
+// на навч платформі
+
+// Властивості:
+// - name - рядок, імя користувача 
+// - completedLessons - число, кількість завершених уроків
+
+// Метод: 1.changeName(newName)
+// - приймає рядок newName
+// - змінює властивістьname на нове значення
+// 2.completedLesson()
+// збільшує completedLessons на 1
+
+// 3.getSummary()
+// 	Повертає рядок:
+// "{name} has completed {completedLessons} lessons."
+
+const user = {
+  name: "Alice",
+  completedLessons: 5,
+
+  changeName(newName) {
+    this.name = newName;
   },
 
-  updatePlayTime(hours) {
-    this.playTime += hours;
+  completedLesson() {
+  this.completedLessons += 1;
   },
 
-  getInfo() {
-    return `${this.username} has ${this.playTime} active hours!`;
+  getSummary() {
+return `${this.name} has completed ${this.completedLessons} lessons.`
   },
+
 };
 
+user.changeName("Elena");
+user.completedLesson();
+console.log(user.getSummary()); 
 
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
 
-profile.changeUsername("Marco");
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
