@@ -227,7 +227,52 @@ const students = [
   console.log(flattenedCourses) // ["mathematics", "physics", "science", "mathematics", "physics", "biology"];
   
 
+//   12 - Метод filter()
+
+const values = [51, -3, 27, 21, -68, 42, -37];
+
+const positiveValues = values.filter(value => value >= 0);
+console.log(positiveValues); // [51, 27, 21, 42]
+// до positiveValues потрапили всі елементи масиву values, які задовольнили умову колбека, тобто були >= 0  
+
+const negativeValues = values.filter(value => value < 0);
+console.log(negativeValues); // [-3, -68, -37]
+// до negativeValues потрапили всі елементи масиву values, які задовольнили умову колбека, тобто були < 0  
+
+const bigValues = values.filter(value => value > 1000);
+console.log(bigValues); // []
+// до bigValues потрапили всі елементи масиву values, які задовольнили умову колбека, тобто були > 1000
+
+console.log(values); // [51, -3, 27, 21, -68, 42, -37]
+// Оригінальний масив values не змінився
+
+
+// 13 - Метод find()
+const colorPickerOptions = [
+    { label: "red", color: "#F44336" },
+    { label: "green", color: "#4CAF50" },
+    { label: "blue", color: "#2196F3" },
+    { label: "pink", color: "#E91E63" },
+    { label: "indigo", color: "#3F51B5" },
+  ];
   
+  console.log(colorPickerOptions.find((option) => option.label === "blue")); // { label: "blue", color: "#2196F3" }
+  console.log(colorPickerOptions.find((option) => option.label === "pink")); // { label: "pink", color: "#E91E63" }
+  console.log(colorPickerOptions.find((option) => option.label === "white")); // undefined
+  
+
+//   14 - Метод every()
+
+const products = [
+	{ name: "apple", quantity: 2 },
+	{ name: "orange", quantity: 5 },
+	{ name: "plum", quantity: 0 },
+];
+
+const hasEveryProduct = products.every(product => product.quantity > 0);
+console.log(hasEveryProduct); // false
+
+  15 - 
 
 
 
