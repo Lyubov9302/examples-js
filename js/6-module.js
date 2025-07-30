@@ -49,6 +49,31 @@
 
 // showName.call(user);
 
+// **********************
+
+// function showThis(a, b, arr) {
+//   console.log(a, b, arr);
+//   console.log("this", this);
+  
+// }
+
+// const object = {
+//   a: 5,
+//   b: 10
+// }
+
+// const abj2 = {
+//   a: 22,
+//   b: 33
+// }
+
+
+// showThis.call(object, "Alice", 2, [1, 2, 3]);
+// showThis.call(abj2);
+
+// showThis.apply(object, ["Petya", 3, [1, 2, 3]]);
+
+
 
 // 3 - Метод apply()
 
@@ -69,6 +94,31 @@
 //   greet.apply(mango, ["Welcome"]); // "Welcome, Mango, your room is 27!"
 //   greet.apply(poly, ["Aloha"]); // "Aloha, Poly, your room is 191!"
   
+
+// ***************
+// function changeColor(newColor) {
+//   console.log("this", this);
+//   this.color = newColor;
+
+// }
+
+
+// const hat = {
+//   color: "black"
+// }
+
+// const sweater = {
+//   color: "green"
+// }
+
+
+// changeColor.call(hat, "red");
+// console.log(hat);
+
+// changeColor.apply(sweater, ["blue"]);
+// console.log(sweater);
+
+
 // 4 - Метод bind() і втрата контексту
 
 // function sayHello() {
@@ -80,6 +130,53 @@
 //   const helloMaria = sayHello.bind(user);
   
 //   helloMaria(); // Привіт, я Марія
+
+// **************
+// const changeHatColor = changeColor.bind(hat);
+
+
+// changeHatColor("yellow");
+// console.log(hat);
+
+
+
+
+// ****************************
+
+// const counter = {
+//   value: 0,
+//   increment(num) {
+//     console.log("increment", this);
+//     this.value += num;
+//   },
+
+//   decrement(num) {
+//     console.log("decrement", this);
+//     this.value -= num;
+//   }
+// }
+
+// function foo(number, callback) {
+
+//   console.log(callback);
+//   callback(number); 
+// }
+
+// foo(10, counter.increment.bind(counter));
+// foo(3, counter.decrement.bind(counter));
+
+// console.log(counter);
+
+
+
+
+
+
+
+
+
+
+
 
 // 5 - Стрілочні функції
 
@@ -104,5 +201,458 @@
 // b.call({ user: "Mango" });
 
 
+// 6 - class and constructor
 
 
+// class User {
+//     constructor(name, email) {
+//           console.log(name, email);
+//     }
+//   }
+  
+//   const mango = new User("Mango", "mango@mail.com"); // "Mango mango@mail.com"
+//   console.log(mango); // {}
+  
+// 7 - Об'єкт параметрів
+
+// class Car {
+//     constructor(params) {
+//       this.brand = params.brand;
+//       this.model = params.model;
+//       this.price = params.price;
+//     }
+//   }
+  
+//   console.log(new Car({ brand: "Audi", model: "Q3", price: 36000 }));
+
+
+// 8 - Методи класу
+
+// class User {
+//     constructor(params) {
+//       this.name = params.name;
+//       this.email = params.email;
+//     }
+  
+//     getEmail() {
+//       return this.email;
+//     }
+  
+//     changeEmail(newEmail) {
+//       this.email = newEmail;
+//     }
+//   }
+  
+//   console.log(User.prototype); // {constructor: ƒ, getEmail: ƒ, changeEmail: ƒ}
+
+// 9 - статичні методи
+
+// class User {
+//   static #takenEmails = [];
+
+//   static isEmailTaken(email) {
+//     return User.#takenEmails.includes(email);
+//   }
+
+//   #email;
+
+//   constructor(params) {
+//     this.#email = params.email;
+//     User.#takenEmails.push(params.email);
+//   }
+// }
+
+// const mango = new User({ email: "mango@mail.com" });
+
+// console.log(User.isEmailTaken("poly@mail.com")); // false
+// console.log(User.isEmailTaken("mango@mail.com")); // true
+
+// 9 - b
+
+// Додай класу Car публічний статичний метод checkPrice(price), 
+// що приймає ціну автомобіля. Метод повинен порівняти значення
+//  параметра price і приватної статичної властивості maxPrice.
+
+// Якщо ціна автомобіля перевищує максимальну,
+//  метод повинен повернути рядок "Error! Price exceeds the maximum".
+// В іншому випадку метод повинен повернути рядок "Success! 
+// Price is within acceptable limits".
+// Під оголошенням класу ми додали ініціалізацію екземпляра і виклики
+//  методів, щоб показати, як буде використовуватися метод checkPrice(price).
+
+// class Car {
+//   static #maxPrice = 50000;
+
+//   constructor(params) {
+//     this.price = params.price;
+//   }
+
+//   static checkPrice(price) {
+//     if(price > Car.#maxPrice) {
+//       return "Error! Price exceeds the maximum";
+//     } 
+//       return "Success! Price is within acceptable limits";
+//     }
+     
+//     }
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+
+// 10 - 
+
+// class User {
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+//   class Admin extends User {
+//     static role = {
+//       BASIC: "basic", 
+//       SUPERUSER: "superuser"
+//     };
+//   }
+
+
+//   console.log(Admin.role.BASIC);
+//   console.log(Admin.role.SUPERUSER);
+
+
+// 10 - b
+
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// class Admin extends User {
+//   access;
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+//   constructor(params) {
+//       super(params.email);
+//     this.access = params.access;
+
+//   }
+// }
+
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+
+
+// 11 - дочірні методи
+
+
+
+// 12 - this 
+
+// 'use strict'
+
+// function foo() {
+//   console.log(this);
+// }
+// foo();
+
+
+// контекст методу обєкта
+
+// const user = {
+//   username: "Alice",
+
+//   showThis() {
+//     console.log(this);
+
+//     const foo = () => {
+//       console.log("foo", this);
+//     } 
+//     foo();
+//   }
+// }
+
+// user.showThis();
+
+
+// стрілочні ф
+
+// const user = {
+//   username: "Alice",
+
+//   showThis: () => {
+//     console.log(this);
+//   }
+// }
+
+// user.showThis();
+
+// контекст методу обєкта, 
+// але оголошена як зовн функція
+
+// function showThis() {
+//   console.log("this", this);
+// }
+
+
+// const obj = {
+//   username: "Alice",
+// }
+
+
+// obj.showUserThis = showThis;
+
+// // console.log(obj.showUserThis);
+
+// obj.showUserThis()
+
+
+// виклик без контекста,
+//  але оголошений як метод обєкта
+
+
+
+// const user = {
+//   userName: "Petya",
+//   showThis() {
+//     console.log("this", this);
+//     console.log("userName", this.userName);
+//   }
+// }
+
+// user.showThis();
+
+// const foo = user.showThis;
+
+// console.log(foo);
+
+// foo();
+
+
+//  контекст у колбек функціях
+
+
+// const user = {
+//   userName: "Petya",
+
+//   showThis() {
+//     console.log("this", this);
+//   }
+// }
+
+// function foo(callback) {
+// console.log(callback);
+// callback();
+
+
+// }
+
+// foo(user.showThis);
+
+
+
+// ***
+
+// function foo() {
+//   console.log(this.lalala);
+// }
+
+// foo();
+
+
+// const user = {
+//   userName: "Alice",
+//   showThis() {
+//     console.log(this);
+//   },
+
+//   showName() {
+
+//               //window.userName
+//     console.log(this.userName);
+//   }
+// }
+
+// // user.showThis();
+
+// // const foo = user.showThis;
+
+// const foo1 = user.showName;
+// foo1();
+
+
+// 13 - напишіть метод calcTotalPtice(stoneName), який
+// приймає назву каменя і розрах та поверт загальну 
+// кількість
+// каменів з таким імям, ціною та кількістю з властив stones
+
+
+// const chopShop = {
+//   stones: [
+//       { name: "Emerald", price: 1300, quantity: 4 },
+//       { name: "Diamond", price: 2700, quantity: 3 },
+//       { name: "Sapphire", price: 1400, quantity: 7 },
+//       { name: "Ruby", price: 800, quantity: 2 },
+//   ],
+
+//   calcTotalPtice(stoneName) {
+//    const stone = this.stones.find((item) => item.name === stoneName);
+//    if(!stone) {
+//    return `${stoneName} not found`;
+
+//    }
+
+//    return stone.price * stone.quantity;
+//   }
+// }
+
+
+// console.log(chopShop.calcTotalPtice("Sapphire"));
+
+
+// 14 - прототип обєкта
+// - Object.create()
+// - Власні і невласні власти
+// - перебір власних властив з hasOwnProperty()
+// - ланцюжки прототипів
+
+
+// const animal = {
+// legs: 4
+
+// }
+
+// const dog = Object.create(animal);
+// dog.name = "Patron";
+
+// console.log(dog);
+// console.log(dog.hasOwnProperty("name"));
+
+
+// for(const key in dog) {
+//   if(dog.hasOwnProperty(key)) {
+//     console.log(key);
+//   }
+// }
+
+
+// **********************
+// const objC = { c: "objC" };
+
+// const objB = Object.create(objC);
+// objB.b = "objB";
+
+// const objA = Object.create(objB);
+// objA.a = "objA";
+
+
+// console.log(objA);
+// console.log(objA.b);
+// console.log(objA.hasOwnProperty("c"));
+// console.log(objB);
+// console.log(objC);
+
+
+// ********************
+
+// наше завдання написати програмне забезпечення
+// для автомобіля, а саме натиск набору та зниж 
+// швидкості в системі круіз авто
+// Створити обєкт cruiseControl з методами accelerate 
+// та decrease 
+
+// const cruiseControl = {
+//   speed: 0,
+//   brand: "Audi",
+
+//   acceserate() {
+//     this.speed += 10;
+//     console.log(`The car ${this.brand} has speed ${this.speed}`)
+//   },
+
+//   decrease() {
+//     if(this.speed <= 0) {
+//       console.log('The car has stopped');
+//       return ;
+//     }
+
+//     this.speed -= 10;
+//     console.log(`The car ${this.brand} is slowing down ${this.speed}`);
+//   }
+// }
+
+// cruiseControl.acceserate();
+// cruiseControl.acceserate();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+// cruiseControl.decrease();
+// console.log(cruiseControl)
+
+
+// ****************************
+//  потрібно створити функціонал для контролю швидкості
+//  прокатних авто
+
+//  Створіть функцію, яка буде приймати один параметр (
+//   макс довзолену швидк
+//  ) та виводити повідомлення чи рух з безпеч шви чи перевищує
+
+//  Ф має опрацьовувати обєкт авто як this
+
+
+// const SPEED = 60;
+
+// const bmw = {
+//   brand: "BMW",
+//   speed: 40
+// }
+
+// const audi = {
+//   brand: "Audi",
+//   speed: 70
+// }
+
+// function speedSensor(maxSpeed) {
+  // if(this.speed <= maxSpeed) {
+  //   return `The car ${this.brand} has ok speed`;
+  // }
+  // return `The car ${this.brand} has too big speed`;
+
+  // or 
+
+//   return this.speed <= maxSpeed ? `The car ${this.brand} has ok speed` : 
+//   `The car ${this.brand} has too big speed`;
+// }
+
+// console.log(speedSensor.call(bmw, SPEED));
+// console.log(speedSensor.call(audi, SPEED));

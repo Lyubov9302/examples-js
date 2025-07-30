@@ -1,3 +1,30 @@
+// 1 - а 
+// напиши скрипт для відображення годин та 
+// хвилин у консолі браузера рядка формату "14 г. 25 хв." 
+// Якщо значчення змінної minutes дорівнює 0, то виводь рядок "14 г.", 
+// без хвилин
+
+// const hours = 14;
+// const minutes = 20;
+// let time;
+
+// if(minutes > 0) {
+//     time = `${hours} г. ${minutes} хв. `
+
+// } else {
+//     time `${hours} г.`;
+// }
+
+// console.log(time);
+
+// рішення з тарнарним оператором 
+
+// const message = minutes > 0 ? `${hours} г. ${minutes} хв. ` : `${hours} г.`;
+
+// console.log(message);
+
+
+
 // // 1 - method slice
 
 // // Отримати останні символи рядка
@@ -410,3 +437,40 @@
 // // console.log(getShippingCost("Chile")); // "Shipping to Chile will cost 250 credits"
 // // console.log(getShippingCost("Jamaica")); // "Shipping to Jamaica will cost 120 credits"
 // // console.log(getShippingCost("Sweden")); // "Sorry, there is no delivery to your country"
+
+
+// 15 - напиши скрипт вибора опції дотсавки товару
+
+// Опція зберіг у змінній option:
+// 1 - самовивіз
+// 2 - курєр
+// 3 - пошта
+
+// У змінну месседж запис повідомлення залежно від опціі
+// :
+// "Ви можете забрати товар завтра о 12 у нашому офісі"
+// "Курєр доставить замовл завтра з 9 до 18"
+// "Посилка буде відправлена сьогодні"
+// "Вам передзвонить менеджер"
+
+// const option = 1;
+// let message = "";
+
+// switch(option) {
+//     case 1:
+//         message = "Ви можете забрати товар завтра о 12 у нашому офісі";
+//         break;
+//     case 2:
+//         message = "Курєр доставить замовл завтра з 9 до 18";
+//         break;
+//     case 3: 
+//         message = "Посилка буде відправлена сьогодні";
+//         break;
+//     default:
+//         message = "Вам передзвонить менеджер";
+// }
+
+// console.log(message);
+
+
+
