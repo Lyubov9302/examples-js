@@ -53,6 +53,57 @@
 // // getLastSubString("Hello", 2);      // "lo"
 
 
+
+
+// 2 - a 
+// напиши скрипт перевірки підписки користувача при 
+// доступі дор контенту
+// Є три типи пілписки: free, pro, vip
+// отримати доступ можуть тільки користувачі pro i vip 
+
+// const sub = "free";
+// let canConnect;
+
+// if(sub === "pro" || sub === "vip") {
+//   canConnect  = true;
+// } else {
+//     canConnect = false;
+// }
+
+
+// or 
+
+// const canConnect = sub === "pro" || sub === "vip" ? true : false;
+
+
+// or
+
+
+// const canConnect = syb === "pro" || sub === "vip";
+
+
+// console.log(canConnect);
+
+
+// 2 - b 
+
+// напиши скрипт який перевіряє можливість відкрити чат 
+// з користучем
+
+// для цього корист має бути другом, онлайн, без режима не турбув
+
+// const isOnline = true;
+// const isFriedn = true;
+// const isOnD = false;
+
+// const canOpenChat =  isOnline && isFriedn && !isOnD;
+
+// console.log("Can open", canOpenChat);
+
+
+
+
+
 // // 2 - method includes() 
 
 // // Доповни функцію checkForWord(sentence, word), 
