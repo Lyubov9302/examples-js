@@ -859,3 +859,103 @@
 // console.log(builder.getValue()); // "^.^"
 // builder.padBoth("=");
 // console.log(builder.getValue()); // "=^.^="
+
+
+// 18 - 
+// напиши клас Blogger для створення обєкта блогера
+// з наст властивостями:
+//  - email - пошта, рядок
+//  - age - вік, число
+//  - numberOfPosts - кількість псотів, число
+//  - topics - масив тем, на яких спеціалізується блогер
+
+//  Клас чекає один параметр - обєкт налаштування з 
+//  однойменними властивостями
+
+//  Додай метод getInfo(), який повертає рядок:
+//  `User ${email} is ${age} years old and has ${numberOfPosts} posts`
+ 
+//  додай метод updatePostCount(value), який у пкараметрі value
+//  приймає кількість постів, які потрібно додати користувачеві
+
+
+//     this.topics = obj.topics;
+//   }
+
+//   getInfo() {
+
+//     return `User ${this.email} is ${this.age} years old and has ${this.numberOfPosts} posts`;
+//   }
+
+//   updatePostCount(value) {
+//     this.numberOfPosts += value;
+//   }
+
+// }
+
+// const alice = new Blogger({
+
+// email: "alice@gmail.com",
+//  age: 25,
+//  numberOfPosts: 20, 
+// topics: ["sport", "gaming"]
+
+
+// })
+
+
+
+// alice.updatePostCount(10);
+// console.log(alice.getInfo());
+// console.log(alice)
+
+// 19 - напиши клас User який створює обєкт із властивостями
+//  login and email
+// оголоси приватні властивості #login and #email,
+// доступ до яких зроби через гетер та сетер
+
+class User {
+  #login;
+  #email;
+ 
+
+  constructor(myLogin, myEmail) {
+    this.#login = myLogin;
+    this.#email = myEmail;
+  }
+
+  get login() {
+    return this.#login;
+  }
+
+
+  set login(newLogin) {
+    this.#login = newLogin;
+  }
+
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+  this.#email = newEmail;
+  }
+
+
+}
+
+
+const alice = new User("Alice", "alice@gmail.com");
+
+
+
+
+alice.email = "superalice@gmail.com";
+console.log(alice.email);
+
+
+alice.login = "superpuperAlice";
+console.log(alice.login);
+
+console.log(alice);
