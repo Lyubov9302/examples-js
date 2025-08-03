@@ -1,13 +1,13 @@
 // // 1 - Створення та додавання елементів
 // // Створеємо заголовок
 
-// // const titleEl = document.createElement("h1");
+// const titleEl = document.createElement("h1");
 
-// // titleEl.textContent = "My title";
+// titleEl.textContent = "My title";
 
-// // titleEl.classList.add("page-title");
+// titleEl.classList.add("page-title");
 
-// // document.body.prepend(titleEl);
+// document.body.prepend(titleEl);
 
 
 // // 2 - Створення зображення
@@ -30,16 +30,16 @@
 
 // // 3 - створюємо та додаємо новий пункт меню (нову лішку)
 
-// // const navItemEl = document.createElement("li");
+// const navItemEl = document.createElement("li");
 
-// // navItemEl.classList.add("site-nav__item");
+// navItemEl.classList.add("site-nav__item");
 
 
-// // const navLinkEl = document.createElement("a");
-// // navLinkEl.href = "/profile";
-// // navLinkEl.classList.add("site-nav__link");
+// const navLinkEl = document.createElement("a");
+// navLinkEl.href = "/profile";
+// navLinkEl.classList.add("site-nav__link");
 
-// // navLinkEl.textContent = "Lalala";
+// navLinkEl.textContent = "Lalala";
 
 
 // // navItemEl.append(navLinkEl);
@@ -54,29 +54,29 @@
 
 // // Створюємо та додаємо колекцію
 
-// // const options = [
-// //     { label: "червоний", color: "#f44369" },
-// //     { label: "бузковий", color: "#f56362" },
-// //     { label: "оранжевий", color: "#467692" },
-// //     { label: "чорний", color: "#943692" },
-// //     { label: "зелений", color: "#943692" },
-// //     { label: "фіолетовий", color: "#f46692" },
+// const options = [
+//     { label: "червоний", color: "#f44369" },
+//     { label: "бузковий", color: "#f56362" },
+//     { label: "оранжевий", color: "#467692" },
+//     { label: "чорний", color: "#943692" },
+//     { label: "зелений", color: "#943692" },
+//     { label: "фіолетовий", color: "#f46692" },
     
-// // ];
+// ];
 
-// // const colorPickerContainerEl = document.querySelector('.color-picker');
+// const colorPickerContainerEl = document.querySelector('.color-picker');
 
-// // const elements = options.map((option) => {
-// //    const btn = document.createElement("button");
+// const elements = options.map((option) => {
+//    const btn = document.createElement("button");
 
-// //    btn.classList.add("color-picker__option");
-// //    btn.textContent = option.label;
+//    btn.classList.add("color-picker__option");
+//    btn.textContent = option.label;
 
-// //    btn.style.backgroundColor = option.color;
+//    btn.style.backgroundColor = option.color;
 
-// //    return btn;
+//    return btn;
 
-// // })
+// })
 
 // // colorPickerContainerEl.append(...elements);
 
@@ -124,21 +124,21 @@
 // // квадратик зміщуватись на 50px по діагоналі
 
 
-// // const btn = document.querySelector(".js-click");
+const btn = document.querySelector(".js-click");
 
-// // const box = document.querySelector(".js-box");
+const box = document.querySelector(".js-box");
 
-// // btn.addEventListener("click", handleClick);
-// // box.addEventListener("click", handleClick);
+btn.addEventListener("click", handleClick);
+box.addEventListener("click", handleClick);
  
-// // let step = 0;
+let step = 0;
 
 
-// // function handleClick() {
-// //     step += 50;
-// //     box.style.marginTop = `${step}px`;
-// //     box.style.marginLeft = `${step}px`;
-// // }
+function handleClick() {
+    step += 50;
+    box.style.marginTop = `${step}px`;
+    box.style.marginLeft = `${step}px`;
+}
 
 // // 8  - подія input
 // // подія blur
@@ -631,8 +631,6 @@
     //             email: emailValue,
     //             password: passwordValue,
     //         };
-        
-
 
 //     if (emailValue === '' || passwordValue === '') {
 //             alert('All fields are required');
@@ -698,8 +696,6 @@
 
 // const list = document.querySelector(".history");
 
-
-
 // btn.addEventListener("click", () => {
 //     const color = getRandomHexColor();
 //     document.body.style.backgroundColor = color;
@@ -716,4 +712,92 @@
 //         list.lastElementChild.remove();
 //     }
 // })
+
+// 20 - Історія емодзі
+
+// При натисканні на кнопку:
+// 1) генерується випадкове емодзі з масиву
+// 2) це емодзі показується у спан з класом .emoji
+// 3) емодзі додається у список ul.history - зверху (як історія)
+// 4) якщо в історії більше 5-ти елементів - 
+// найстаріші емодзі видаляються 
+
+
+// const btn = document.querySelector(".generate-emoji");
+// const span = document.querySelector(".emoji");
+// const list = document.querySelector(".history");
+
+// const emojis = ["😀", "😂", "😎", "😍", "🤖", "😱", "🐶", "🍕", "🚀", "🌈"];
+
+// function getRandomEmoji() {
+//   const index = Math.floor(Math.random() * emojis.length);
+//   return emojis[index];
+// }
+
+// btn.addEventListener("click", () => {
+//     const emoji = getRandomEmoji();
+//     span.textContent = emoji;
+
+//     const item = document.createElement("li");
+//     item.textContent = emoji;
+//     list.prepend(item);
+
+//     if(list.children.length > 5) {
+//         list.lastElementChild.remove();
+//     }
+// })
+
+
+// 21 - Форма зворотного звязку
+
+// Мета:
+// 1) перевірити чи всі поля заповнені
+// 2)імейл має містити @ і крапку
+// 3) повідомлення - мінімум 10 символів
+// 4) якщо все ок - вивести дані в console.log та очистити форму
+
+
+// const form = document.querySelector(".feedback-form");
+
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault();
+
+//     const currentForm = event.currentTarget;
+//     const name = currentForm.elements.name;
+//     const email = currentForm.elements.email;
+//     const message = currentForm.elements.message;
+
+// const nameValue = name.value.trim();
+// const emailValue = email.value.trim();
+// const messageValue = message.value.trim();
+
+
+    // const formData = {
+    //     name: nameValue,
+    //     email: emailValue,
+//         message: messageValue
+//     };
+
+//     if (nameValue === '' || emailValue === '' || messageValue === '') {
+//         alert('Please fill in the forms');
+//         return;
+//     }
+
+//     if(!emailValue.includes("@") || !emailValue.includes(".")) {
+//         alert('Invalid email');
+//         return;
+//     }
+
+//     if(messageValue.length < 10) {
+//         alert('Message should contain at least 10 symbols');
+//         return;
+
+//     }
+
+//     console.log(formData);
+//     form.reset();
+
+// })
+
+
 
