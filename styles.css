@@ -188,6 +188,10 @@
   .odd {
    background-color: #ffed3b;
   }
+
+  .active {
+    color: red;
+  }
   
   /* form styles */
   .contact-form {
