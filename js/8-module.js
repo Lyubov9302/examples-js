@@ -96,7 +96,7 @@
 // }
 
 
-// 4 - Делегування подій
+// 3 - b - Делегування подій
 
 // Отримай колір, по якому було здійснено клік  
 
@@ -114,71 +114,127 @@
 // }
 
 
-// 4 -	1.	Створи картки з товарами на основі масиву products
+// 4 -	.	Створи картки з товарами на основі масиву products
 // 📎 Приклад картки: https://prnt.sc/KmgDlzqoIA3M
 // 	2.	Реалізуй делегування подій на колекції карток
 // 🔘 Після кліку на картку повинно зявлятись модальне вікно з детальною інформацією про продукт
 // 📎 Приклад модального вікна: https://prnt.sc/vWNoCezCw7ji
 // 	3.	Для реалізації модального вікна використовуй бібліотеку basicLightbox
 
-const products = [
-    {
-      id: 1,
-      img: "https://www.vodafone.ua/shop/media/wysiwyg/novosti/Capture11.jpg",
-      name: "Monitor",
-      price: 3000,
-      description: "23-inch monitor with Full HD resolution.",
-    },
-    {
-      id: 2,
-      img: "https://upload.wikimedia.org/wikipedia/commons/2/22/Keyboard3.jpg",
-      name: "Keyboard",
-      price: 800,
-      description: "Mechanical keyboard with RGB lighting.",
-    },
-    {
-      id: 3,
-      img: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Computer_mouse.jpg",
-      name: "Mouse",
-      price: 500,
-      description: "Wireless ergonomic mouse.",
-    },
-  ];
+// const products = [
+//     {
+//       id: 1,
+//       img: "https://www.vodafone.ua/shop/media/wysiwyg/novosti/Capture11.jpg",
+//       name: "Monitor",
+//       price: 3000,
+//       description: "23-inch monitor with Full HD resolution.",
+//     },
+//     {
+//       id: 2,
+//       img: "https://upload.wikimedia.org/wikipedia/commons/2/22/Keyboard3.jpg",
+//       name: "Keyboard",
+//       price: 800,
+//       description: "Mechanical keyboard with RGB lighting.",
+//     },
+//     {
+//       id: 3,
+//       img: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Computer_mouse.jpg",
+//       name: "Mouse",
+//       price: 500,
+//       description: "Wireless ergonomic mouse.",
+//     },
+//   ];
 
-  const container = document.querySelector(".products");
+//   const container = document.querySelector(".products");
 
-container.insertAdjacentHTML("beforeend", createMarkup(products));
-container.addEventListener("click", handleClick);
+// container.insertAdjacentHTML("beforeend", createMarkup(products));
+// container.addEventListener("click", handleClick);
 
 
-  function createMarkup(arr) {
-    return arr.map(item => `
-        <li class="item product-item" data-id="${item.id}">
-        <img src="${item.img}" alt="${item.name}" width="300" />
-        <h2>${item.name}</h2>
-        <p>${item.price}грн</p>
-        </li>
-        `).join("");
+//   function createMarkup(arr) {
+//     return arr.map(item => `
+//         <li class="item product-item" data-id="${item.id}">
+//         <img src="${item.img}" alt="${item.name}" width="300" />
+//         <h2>${item.name}</h2>
+//         <p>${item.price}грн</p>
+//         </li>
+//         `).join("");
 
-  }
+//   }
 
-  function handleClick(event) {
-if(event.currentTarget === event.target) {
-    return;
-}
+//   function handleClick(event) {
+// if(event.currentTarget === event.target) {
+//     return;
+// }
 
-const parent = event.target.closest(".product-item");
-const productId = parent.dataset.id;
-const product = products.find((item) => item.id === Number(productId));
+// const parent = event.target.closest(".product-item");
+// const productId = parent.dataset.id;
+// const product = products.find((item) => item.id === Number(productId));
 
-const instance = basicLightbox.create(`
-	<div class="modal">
-    <img src="${product.img}" alt="${product.name}" />
-    <h2>${product.name}</h2>
-    <h3>${product.price}</h3>
-    <p>${product.description}</p>
-    </div>
-`)
+// const instance = basicLightbox.create(`
+// 	<div class="modal">
+//     <img src="${product.img}" alt="${product.name}" />
+//     <h2>${product.name}</h2>
+//     <h3>${product.price}</h3>
+//     <p>${product.description}</p>
+//     </div>
+// `)
 
-instance.show();
-  }
+// instance.show();
+//   }
+
+// 5 - деструктуризація обєкта в параметрах функціі
+
+// `Hello my name is , i know html - , css - , and js -`
+
+// const user = {
+//   name: "Petya",
+//   skills: {
+//     html: true,
+//     css: true,
+//     js: false
+//   }
+// }
+ 
+
+  // без деструктуризації 
+
+//   function getUserInfo(obj) {
+
+// console.log(`Hello my name is ${obj.name}, i know html - ${obj.skills.html}, css - ${obj.skills.css}, and js - ${obj.skills.js}`)
+
+//   }
+
+//   getUserInfo(user);
+
+
+// з деструктуризацією 
+
+// function getUserInfo({name, skills: { html, css, js }}) {
+// console.log(`Hello my name is ${name}, i know html - ${html}, css - ${css}, and js - ${js}`)
+
+// }
+
+// getUserInfo(user);
+
+// 6 - необхідно зробити рефакторинг функції calculateHousePerimeter,
+// так, щоб вона приймала обєкт з параметрами будинку, включаючи
+// довжини сторін будинку
+// Функція повинна розрахувати та повернути параметр будинку 
+
+
+// function calculateHousePerimeter({ sideA, sideB, sideC, sideD }) {
+//   const perimeter = sideA + sideB + sideC + sideD;
+//   return perimeter;
+// }
+
+// const house = {
+//   sideA: 10,
+//   sideB: 15,
+//   sideC: 10,
+//   sideD: 15
+// }
+
+
+// const perimeter = calculateHousePerimeter(house);
+// console.log(`Параметр будинку: ${perimeter}`);
