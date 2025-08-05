@@ -505,4 +505,35 @@
 // console.log(getNumbersGreaterThanTen([1, 2, 3]));
 // // Поверне: []
 
+// 23 - напиши скрипт, який виводить у 
+// консоль усі слова рядка крім першого і останнього.
+
+// Результуючий рядок не повинен починатися або закінчуватися символом пробілу.
+// Скрипт повинен працювати для будь якого рядка
+
+// const string = "Welcome to the future";
+
+// const arr = string.trim().split(" ");
+
+// const result = arr.slice(1, arr.length - 1).join(" ");
+
+// console.log(result.trim());
+
+// 24 - напиши скрипт пошуку найменшого числа у масиві. 
+// Коди повинен працювати для будь якого масиву чисел
+// Використовуй цикл для розвязання завдання 
+
+// const values = [2, 17, 94, 1, 23, 37];
+
+// let min;
+
+// for (let i = 0; i < values.length; i++)  {
+//     if(i === 0) {
+//      min = values[i];
+//     } else if(values[i] < min) {
+//         min = values[i];
+//     }
+// }
+
+// console.log(min);
 

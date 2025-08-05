@@ -102,10 +102,46 @@ list.append(itemEl);
 
 // 19 - зроби це саме, але використовуй шаблонні рядки та метод insertAdjacentHTML()
 
-list.insertAdjacentHTML('beforeend', `<li><h3>"Властивість innerHTML" </h3><p>"Ще один спосіб створити DOM-елементи і помістити їх в дерево - 
+list.insertAdjacentHTML('beforeend', `<li><h3>"Властивість innerHTML" </h3><p>
+    "Ще один спосіб створити DOM-елементи і помістити їх в дерево - 
 це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу". 
 </p></li>`
 );
 // 20 - очисти список
 
-list.innerHTML = '';
+// list.innerHTML = '';
+
+
+//2 -  Створіть контейнер div (з класом number-container) в HTML-документі 
+// та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними
+// числами від 1 до 100 і додайте їх до контейнера div(numberContainer). 
+// Парні числа повинні мати зелений фон (додати клас even), 
+// Непарні числа - жовтий фон (додати клас odd).
+
+
+const numberContainerEl = document.querySelector(".number-container");
+
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+const elements = [];
+
+for (let i = 0; i < 100; i++) {
+    const div = document.createElement('div');
+    div.classList.add("number");
+
+const randomNum = randomNumber();
+div.textContent = randomNum;
+
+if(randomNum % 2 === 0) {
+    div.classList.add("even");
+} else {
+    div.classList.add("odd");
+}
+
+elements.push(div);
+}
+
+numberContainerEl.append(...elements);
+
+
+
+
