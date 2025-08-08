@@ -124,21 +124,20 @@
 // // квадратик зміщуватись на 50px по діагоналі
 
 
-const btn = document.querySelector(".js-click");
+// const btn = document.querySelector(".js-click");
+// const box = document.querySelector(".js-box");
 
-const box = document.querySelector(".js-box");
-
-btn.addEventListener("click", handleClick);
-box.addEventListener("click", handleClick);
+// btn.addEventListener("click", handleClick);
+// box.addEventListener("click", handleClick);
  
-let step = 0;
+// let step = 0;
 
 
-function handleClick() {
-    step += 50;
-    box.style.marginTop = `${step}px`;
-    box.style.marginLeft = `${step}px`;
-}
+// function handleClick() {
+//     step += 50;
+//     box.style.marginTop = `${step}px`;
+//     box.style.marginLeft = `${step}px`;
+// }
 
 // // 8  - подія input
 // // подія blur
@@ -236,7 +235,7 @@ function handleClick() {
 
 // //    if(event.ctrKey && event.code === "KeyC") {
 
-// //     event.pr4eventDeafult();
+// //     event.preventDeafult();
 // //    }
 // // }
 
@@ -800,4 +799,75 @@ function handleClick() {
 // })
 
 
+// 23 - створи поле введення та виводь повідомлення користувачав div
+// якщо введення порожнє - показуй "No message to display" 
 
+
+// const messageInput = document.querySelector('#message-input');
+// const output = document.querySelector('#message-output');
+
+// const value = messageInput.value.trim();
+
+// messageInput.addEventListener("input", () => {
+//     const value = messageInput.value.trim();
+
+//     output.textContent = value === '' ? "No message to display" : value;
+// })
+
+
+// 24 - зміна кольору квадрата при кліку на кнопку 
+
+// const btnColor = document.querySelector('#color-button');
+// const square = document.querySelector('#square');
+ 
+// btnColor.addEventListener('click', () => {
+//     square.style.backgroundColor = "teal";
+// })
+
+
+// or 
+
+// btnColor.addEventListener('click', onBtnChangeColor);
+
+// function onBtnChangeColor() {
+//     square.style.backgroundColor = 'tomato';
+// }
+
+// 25 - створи форму з полем для імені. При натисканні кнопки(submit)
+// - виводь привітання з імям під формою 
+// - якщо поле порожнє - воводь 'Anonymous' 
+
+const form = document.querySelector('#name-form');
+const input = document.querySelector('#name-input');
+
+const text = document.querySelector('#greeting');
+
+
+
+// form.addEventListener("submit", onFormSubmit);
+
+// function onFormSubmit(e) {
+//     e.preventDefault();
+
+//     const value = input.value.trim();
+
+// text.textContent = `Привіт ${value === '' ? 'Anonymous' : value}!`;
+// }
+
+// or 
+
+// form.addEventListener('submit', function(e) {
+//     e.preventDefault();
+
+//     const value = input.value.trim();
+
+//     text.textContent = `Привіт ${value === '' ? 'Anonymous' : value}!`;
+// })
+
+// 26 - вправа на подію keydown (натискання клавіші)
+
+// const output = document.querySelector('#output');
+
+// document.addEventListener('keydown', (event) => {
+// output.textContent = `You pressed ${event.key}`;
+// })

@@ -142,6 +142,104 @@ elements.push(div);
 
 numberContainerEl.append(...elements);
 
+// Form Events, Input, Focus, Blur and Submit.
+
+// Використовуй шаблон форми з файлу html.
+
+// 1 - При події `input`, якщо користувач ввів в поле більше 
+// 6 символів то додати клас `success`. Якщо ж символів менше аніж 6,
+// то клас `error`
+
+// const form = document.querySelector(".js-contact-form");
+// const input = document.querySelector(".js-username-input");
+// const checkBox = document.querySelector(".js-policy-label");
+// const span = document.querySelector(".js-username-output");
+
+
+// input .addEventListener("input", () => {
+// const value = input.value.trim();
+// if(value.length > 6) {
+//     input.classList.add("success");
+//     input.classList.remove("error");
+// } else {
+//     input.classList.add("error");
+//     input.classList.remove("success");
+// }
+// });
+
+
+
+// 2 - При події `focus` зроби перевірку на пустоту поля інпута,
+// якщо ж поле пусте, то зроби `outline` => `'3px solid red'`,
+// якщо при фокусі поле непусте, то `outline` => `'3px solid green'`
+
+
+// input.addEventListener("focus", () => {
+//     if(input.value.trim().length <= 6) {
+//         input.style.outline = '3px solid red';
+//     } else {
+//         input.style.outline = '3px solid green';
+//     }
+// })
+
+
+// 3 - При події `blur` зроби перевірку на пустоту поля інпута,
+// якщо ж поле пусте, то зроби `outline` => `'3px solid red'`, 
+// якщо при фокусі поле непусте, то `outline` => `'3px solid lime'`
+
+// input.addEventListener("blur", () => {
+//     if(input.value.trim() = '') {
+//         input.style.outline = '3px solid red';
+//     } else {
+//         input.style.outline = '3px solid lime';
+//     }
+// })
+
+
+// 4 - При події `submit`. Відміни поведінку браузера по зaмовчуванню.
+// Дістань дані з інпуту і чек боксу, зроби перевірку, 
+// що інпут не порожній, також, що нажатий чек бокс у положення true,
+// якщо користувач все виконав вірно, збери данні (userName)
+// у обьект і виведи у консоль. У разі, якщо користувач не виконав
+// одну із умов, виведи повідомлення. Також при події інпут реалізуй додавання 
+// ім`я користувача у span, замість слова "Anonymous".
+// Якщо користувач ввів ім`я, а потім видалив, зроби так,
+// щоб на місце повернулось дефолтне знаяення "Anonymous".
+// При відправці форми, очисти інпут, верни чек бокс у положення 
+// false, верни дефолтне значення "Anonymous" у span.
+const form = document.querySelector(".js-contact-form");
+const input = document.querySelector(".js-username-input");
+const checkBox = document.querySelector(".js-policy-checkbox");
+const span = document.querySelector(".js-username-output");
+
+form.addEventListener("submit", onFormSubmit);
+function onFormSubmit(e) {
+e.preventDefault();
+
+const currentForm = e.currentTarget;
+const name = currentForm.elements.userName;
+const check = currentForm.elements.accept;
+
+const inputValue = name.value.trim();
+const checkBoxValue = check.checked;
+
+
+const User = {
+    name: inputValue
+}
+
+if (inputValue === '' || !checkBoxValue) {
+    span.textContent = 'Anonymous';
+    console.log('Anonymous');
+  } else {
+    span.textContent = inputValue;
+    console.log(User);
+  }
+  
+
+  form.reset();
+}
+
 
 
 
