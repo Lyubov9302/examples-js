@@ -148,21 +148,21 @@
 // // checkbox
 
 
-// //  const jsCheckbox = document.querySelector(".js-checkbox");
+//  const jsCheckbox = document.querySelector(".js-checkbox");
 
-// //  jsCheckbox.addEventListener("change", () => {
-// //        console.log("ok");
+//  jsCheckbox.addEventListener("change", () => {
+//        console.log("ok");
 
-// //  })
+//  })
 
 // // input 
 
-// // const userName = document.querySelector(".js-user-name");
+// const userName = document.querySelector(".js-user-name");
 
-// // userName.addEventListener("input", (event) => {
-// //     console.log(event.target.value);
+// userName.addEventListener("input", (event) => {
+//     console.log(event.target.value);
 
-// // })
+// })
 
 
 // // 9 - користувач вводить в input своє імя після
@@ -170,13 +170,13 @@
 
 
 
-// // const userName = document.querySelector(".js-user-name");
+// const userName = document.querySelector(".js-user-name");
 
-// // userName.addEventListener("blur", (event) => {
-// //     const name = event.target.value;
+// userName.addEventListener("blur", (event) => {
+//     const name = event.target.value;
 
-// //     alert(`Hello ${name}`)
-// // })
+//     alert(`Hello ${name}`)
+// })
 
 // // 10 - подія submit 
 // // Дії браузера за замовчуванням
@@ -837,10 +837,10 @@
 // - виводь привітання з імям під формою 
 // - якщо поле порожнє - воводь 'Anonymous' 
 
-const form = document.querySelector('#name-form');
-const input = document.querySelector('#name-input');
+// const form = document.querySelector('#name-form');
+// const input = document.querySelector('#name-input');
 
-const text = document.querySelector('#greeting');
+// const text = document.querySelector('#greeting');
 
 
 
@@ -871,3 +871,204 @@ const text = document.querySelector('#greeting');
 // document.addEventListener('keydown', (event) => {
 // output.textContent = `You pressed ${event.key}`;
 // })
+
+
+// 27 - створи сторінку з кнопкою, при натисканні на кнопку у div під
+// нею зявляється повідомлення "Кнопку натиснуто" 
+
+// const button = document.querySelector('#myButton');
+// const message = document.querySelector('#message');
+
+// button.addEventListener("click", () => {
+//     message.textContent = "Кнопку натиснуто";
+// })
+
+// 28 - change 
+
+// створи сторінку з:
+// - текствоим полем для введення імені;
+// - випадаючим списком з кольорами
+// Зроби так,  щоб:
+// - при зміні імені у полі -  у консолі зявлялось "Привіт, "імя";
+// - при зміні кольору у списку - сторінка змінювала свій фон на цей колір
+
+// const input = document.querySelector('#nameInput');
+// const colorList = document.querySelector('#colorSelect');
+
+
+// input.addEventListener("change", setOutput);
+// colorList.addEventListener("change", changeColor);
+
+// function setOutput(e) {
+//     const changedName = e.target.value;
+//     console.log(`${changedName}`);
+// }
+
+// function changeColor(e) {
+//     document.body.style.backgroundColor = e.target.value;
+// }
+
+
+// 29 - practice 
+// - порахувати і вивести в консоль кількість жанрів (li.genre) у списку books
+// - для кожного жанру вивести:
+// назву жанру (текст із тегу h2)
+// кількість книг у цьому жанрі (кільксть вкладених лі)
+
+
+// const list = document.querySelectorAll('.genre');
+
+// console.log('Genres:', list.length);
+
+// list.forEach(item => {
+// const nameGenre = item.querySelector('h2').textContent;
+// const bookTotal = item.querySelectorAll('li').length;
+
+// console.log(`Name: ${nameGenre}`);
+// console.log(`Number: ${bookTotal}`);
+// })
+
+// 30 - 
+
+// const images = [
+//      {
+    //  url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    //  alt: "White and Black Long Fur Cat",
+    //  },
+    //  {
+    //  url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    //  alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+    //  },
+    //  {
+    //   url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    //  alt: "Group of Horses Running",
+    //  },
+    //  {
+    //  url: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+    //  alt: "Alpine Spring Meadows",
+    //  },
+    //  {
+    //  url: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+    // alt: "Nature Landscape",
+    //  },
+    //  {
+    //  url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+    //  alt: "Lighthouse Coast Sea",
+    //  },
+    // ];
+    
+
+    // const gallery = document.querySelector('.gallery');
+
+    // const imagesCard = images.map(image => `
+    //     <li>
+    //     <img src="${image.url}" alt="${image.alt}" />
+    //     </li>
+    //     ` ).join('');
+
+    //     gallery.insertAdjacentHTML('beforeend', imagesCard);
+
+    // or 
+
+    // images.forEach(image => {
+    //     const li = document.createElement('li');
+    //     const img = document.createElement('img');
+    //     img.src = image.url;
+    //     img.alt = image.alt;
+
+    //     li.appendChild(img);
+    //     gallery.appendChild(li);
+     
+    // })
+
+    // 31 - використовуючи createElement i appendChild:
+    // -  створи для кожного завдання лі 
+    // - усередині лі створи спан з текстом завдання 
+    // - якщо done: true - додай до лі клас completed 
+    // - додай усі лі у список .todo-list
+
+
+//     const todos = [
+//         { text: "Buy groceries", done: false },
+//         { text: "Walk the dog", done: true },
+//         { text: "Read a book", done: false }
+//       ];
+
+// const todoList = document.querySelector('.todo-list');
+
+// todos.forEach(todo => {
+// const li = document.createElement('li');
+// const span = document.createElement('span');
+// span.textContent = todo.text;
+// if(todo.done) {
+//     li.classList.add('completed');
+// }
+
+// li.appendChild(span);
+// todoList.appendChild(li);
+
+// })
+
+// 32 - 
+// додай обробник форми submit для форми .signup-form
+// При вілправленні:
+// - зупини стандартну поведінку
+// - зчитай значення username i age
+// - якщо хоча б одне поле порожнє - покажи алерт "All fields are required"
+// і нічого більше не роби 
+// - Якщо обидва поля заповнені:
+// - створи обєкт User з ключами username i age
+// - виведи цей обєкт у консоль
+// - очисти форму методом reset()
+
+// const signupForm = document.querySelector('.signup-form');
+
+// signupForm.addEventListener('submit', onFormSubmit);
+
+// function onFormSubmit(e) {
+//     e.preventDefault();
+
+// const formValue = e.currentTarget;
+// const nameValue = formValue.elements.username.value.trim();
+// const ageValue = formValue.elements.age.value.trim();
+
+// if(nameValue === '' || ageValue === '') {
+//     alert('All fields are required');
+//     return;
+// }
+
+// const user = {
+//     nameValue,
+//     ageValue
+// }
+
+// console.log(user);
+// signupForm.reset();
+// }
+
+// 33 - при кліку на кнопку .сhange-style:
+// - зміни колір тексту body на випадковий
+// - зміни колір фону body на випадковий 
+// - запиши ці значення у відповідні span.color i span.bg-color
+// Для генерації випадкового кольору використай цю функцію:
+
+// function getRandomHexColor() {
+//     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+//   }
+
+
+//   const btn = document.querySelector('.change-style');
+//   const bgSpan = document.querySelector('.bg-color');
+//   const spanColor = document.querySelector('.color');
+
+//   btn.addEventListener('click', () => {
+//     const bgColor = getRandomHexColor();
+//     const textColor = getRandomHexColor();
+  
+//     document.body.style.color = textColor;
+//     document.body.style.backgroundColor = bgColor;
+  
+//     spanColor.textContent = textColor;
+//     bgSpan.textContent = bgColor;
+//   });
+
