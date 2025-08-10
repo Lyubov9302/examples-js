@@ -238,3 +238,23 @@
 
 // const perimeter = calculateHousePerimeter(house);
 // console.log(`Параметр будинку: ${perimeter}`);
+
+
+// 7 - lightbox 
+
+// Знаходимо кнопку, яка буде відкривати модальне вікно
+const openLightboxBtn = document.querySelector('#open-lightbox');
+
+// Створюємо екземпляр модального вікна
+const instance = basicLightbox.create(`
+  <h1>Not closable!</h1>
+  <p>Це вікно не можна закрити кліком</p>
+`, {
+  closable: true
+});
+
+// Додаємо слухача подій на кнопку
+openLightboxBtn.addEventListener('click', () => {
+  
+  instance.show(); // Цей рядок відкриває модальне вікно
+});

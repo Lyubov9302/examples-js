@@ -1072,3 +1072,28 @@
 //     bgSpan.textContent = bgColor;
 //   });
 
+// 34 - при завантаженні сторінки в полі підказки зявляється літера, яку треба натиснути
+// користувач вводить будь що з клавіатури
+// Якщо натиснута літера збігається з підказкою (з урахуванням регістру),
+// показати "Правильно", інакше - "Спробуйте ще раз"
+
+// const letters = ['a', 's', 'd', 'f', 'q', 'w', 'e', 'r'];
+
+// const targetLetter = letters[Math.floor(Math.random() * letters.length)];
+
+// document.getElementById('task').textContent = `Натисніть літеру: ${targetLetter}`;
+// const text = document.querySelector('#feedback');
+
+// document.addEventListener("keydown", function(e) {
+
+
+// if(e.key.toLowerCase() === targetLetter) {
+// text.textContent = "Правильно";
+// } else {
+//     text.textContent = "Спробуйте ще раз";
+// }   
+// })
+
+// 35 - 
+
+
