@@ -113,35 +113,35 @@
 // Спробуй додати третю картинку до цієї галереї й змінити підпис так, щоб він містив емодзі
 
 
-const container = document.body;
+// const container = document.body;
 
-const newLink = document.createElement('a');
+// const newLink = document.createElement('a');
 
-newLink.href = "https://placekitten.com/802/600";
+// newLink.href = "https://placekitten.com/802/600";
 
-const newnewImg = document.createElement('img');
-newnewImg.src ="https://placekitten.com/202/150";
-newnewImg.alt = "Котик 3";
+// const newnewImg = document.createElement('img');
+// newnewImg.src ="https://placekitten.com/202/150";
+// newnewImg.alt = "Котик 3";
 
-newLink.append(newnewImg);
-container.append(newLink);
+// newLink.append(newnewImg);
+// container.append(newLink);
 
-container.addEventListener("click",(e) => {
-  const link = e.target.closest('a');
-  if(!link) return;
+// container.addEventListener("click",(e) => {
+//   const link = e.target.closest('a');
+//   if(!link) return;
   
-  e.preventDefault();
+//   e.preventDefault();
 
-  const bigImg = link.href;
+//   const bigImg = link.href;
   
-  const instance = basicLightbox.create(`
+//   const instance = basicLightbox.create(`
 	
-    <img src="${bigImg}" alt = "" />
+//     <img src="${bigImg}" alt = "" />
   
 
-`);
+// `);
 
-instance.show();
+// instance.show();
   
-});
+// });
 
