@@ -86,17 +86,29 @@
 
 // const container = document.querySelector(".container");
 
+
+// отримуєм вклaдені дочірні елементи і перетворюєм
+//  пседвомасив у масив за допомо спред
+// оператора  і отрим доступ за допом фор-іч
+
 // [...container.children].forEach(box => {
 //    box.addEventListener("click", handleClick);
 // })
 
 // function handleClick(event) {
+
+// за допомогою посилання на елмент отримуєм доступ до властиво датасет, 
+// а саме до кольору 
+
 // const color = event.currentTarget.dataset.color;
 // console.log("color:", color);
 // }
 
 
 // 3 - b - Делегування подій
+//  а саме, вішаєм слухач на 1 батьківський елем,
+//  і перевіряєм де був клік 
+
 
 // Отримай колір, по якому було здійснено клік  
 
@@ -105,10 +117,14 @@
 // container.addEventListener("click", handleClick);
 
 // function handleClick(event) {
+// якщо елемент по якому клікаєм не має класу бокс,
+// то ми припиняєм роботу і виходим з функції
 // if(!event.target.classList.contains("box")) {
 //     return;
 // }
 
+// а сюди потрапляєть ті елем, які мають клас бокс і з 
+// них витягаєм колір
 // const color = event.target.dataset.color;
 // console.log(color);
 // }
@@ -144,13 +160,16 @@
 //       description: "Wireless ergonomic mouse.",
 //     },
 //   ];
-
+// 1а - знаходим елем в який вставим картки 
 //   const container = document.querySelector(".products");
 
+// 1 c - вставляєм картку в дом
 // container.insertAdjacentHTML("beforeend", createMarkup(products));
+
+// 2a - реалізовуєм делегування 
 // container.addEventListener("click", handleClick);
 
-
+// 1 b робим розмітку картки 
 //   function createMarkup(arr) {
 //     return arr.map(item => `
 //         <li class="item product-item" data-id="${item.id}">
@@ -162,13 +181,22 @@
 
 //   }
 
+// 2 b - відловлюєм кліки по картці
+// (якщо контейнер - це те саме по чому ми клікаєм,
+//   то припини функцію)
 //   function handleClick(event) {
 // if(event.currentTarget === event.target) {
 //     return;
 // }
 
+
+// знаходим найближчий батьк елем до того, по якому клік 
 // const parent = event.target.closest(".product-item");
+
+// отримуєм id продукту по якому клік  
 // const productId = parent.dataset.id;
+
+// знаходим в масиві продукт з айді таким самим. як ми отримали 
 // const product = products.find((item) => item.id === Number(productId));
 
 // const instance = basicLightbox.create(`
