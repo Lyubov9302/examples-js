@@ -21,7 +21,7 @@
 // приклад картки: https://prnt.sc/h_p-A6Hty-i-
 
 const BASE_URL = "http://api.weatherapi.com/v1";
-const API_KEY = "e924fd8ce48845e1a0b110735251707";
+const weather_API_KEY = "e924fd8ce48845e1a0b110735251707";
 
 
 const form = document.querySelector(".js-search-form");
@@ -55,7 +55,7 @@ function handleSubmit(event) {
 function serviceWeather(city = "", days = 1) {
 
 const params = new URLSearchParams({
-key: API_KEY,
+key: weather_API_KEY,
 q: city,
 days: days,
 lang: "uk"
